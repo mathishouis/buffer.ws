@@ -1,8 +1,8 @@
 {
-  "name": "buffer.js",
+  "name": "buffer.io",
   "version": "1.0.0",
   "description": "A simple and fast bytebuffer implementation under node.js ",
-  "main": "index.js",
+  "main": "src/BufferIO.ts",
   "scripts": {
     "test": "mocha -r ts-node/register 'tests/**/*.ts'"
   },
@@ -27,5 +27,16 @@
     "@types/chai": "^4.3.0",
     "chai": "^4.3.4",
     "ts-node": "^10.4.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kozennnn/buffer.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kozennnn/buffer.io/issues"
+  },
+  "homepage": "https://github.com/kozennnn/buffer.io#readme"
 }
