@@ -1,8 +1,8 @@
-import {BufferIO} from "../src/BufferIO";
+import {BufferWS} from "../src/BufferWS";
 
 describe('DECODING and ENCODING test', () => {
     it('encoding', function () {
-        let buffer = new BufferIO();
+        let buffer = new BufferWS();
         buffer.writeInt(39);
         buffer.writeDouble(4.5);
         buffer.writeString("Yooo");
@@ -10,7 +10,7 @@ describe('DECODING and ENCODING test', () => {
         buffer.writeBool(false);
     }),
     it('decoding', function () {
-        let buffer = new BufferIO();
+        let buffer = new BufferWS();
         buffer.writeInt(64);
         buffer.writeDouble(3.6);
         buffer.writeString("Heyy :D");

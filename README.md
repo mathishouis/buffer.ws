@@ -11,16 +11,16 @@ A simple and fast bytebuffer implementation under node.js
 ## Installation
 
 ```
-npm i buffer.io
+npm i buffer.ws
 ```
 
 ## Usage
 
 ```js
 
-var BufferIO = require("buffer.io");
+var BufferWS = require("buffer.ws");
 
-var buffer = new BufferIO()
+var buffer = new BufferWS()
                 .writeInt(39)
                 .writeString("Hello!")
                 .flip();

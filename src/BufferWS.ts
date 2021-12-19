@@ -1,6 +1,6 @@
 import {DataView} from "./methods/DataView";
 
-export class BufferIO {
+export class BufferWS {
 
     private readonly _dataView: DataView;
 
