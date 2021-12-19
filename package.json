@@ -1,7 +1,7 @@
 {
   "name": "buffer.ws",
-  "version": "1.0.0",
-  "description": "A simple and fast bytebuffer implementation under node.js ",
+  "version": "1.0.1",
+  "description": "A simple, light and fast bytebuffer implementation under node.js ",
   "main": "src/BufferWS.ts",
   "scripts": {
     "test": "mocha -r ts-node/register 'tests/**/*.ts'"

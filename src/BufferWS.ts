@@ -73,4 +73,8 @@ export class BufferWS {
     public flip(): void {
         this._dataView.flip();
     }
+
+    public getByteArray(): Uint8Array {
+        return this._dataView.getByteArray();
+    }
 }

@@ -1,6 +1,6 @@
 # buffer.ws
 
-A simple and fast bytebuffer implementation under node.js
+A simple, light and fast bytebuffer implementation under node.js
 
 ## Table of Contents
 

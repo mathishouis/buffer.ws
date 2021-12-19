@@ -149,4 +149,8 @@ export class DataView {
         this._byteOffset = 0;
         this._cursor = 0;
     }
+
+    public getByteArray(): Uint8Array {
+        return this._byteArray;
+    }
 }
