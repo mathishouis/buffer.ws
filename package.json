@@ -1,0 +1,31 @@
+{
+  "name": "buffer.js",
+  "version": "1.0.0",
+  "description": "A simple and fast bytebuffer implementation under node.js ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register 'tests/**/*.ts'"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "javascript",
+    "buffer",
+    "websocket",
+    "arraybuffer",
+    "bytebuffer"
+  ],
+  "author": "Mathis HOUIS",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^17.0.0",
+    "mocha": "^9.1.3",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@types/chai": "^4.3.0",
+    "chai": "^4.3.4",
+    "ts-node": "^10.4.0"
+  }
+}
