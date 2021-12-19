@@ -1,4 +1,4 @@
-# buffer.js
+# buffer.ws
 
 A simple and fast bytebuffer implementation under node.js
 
