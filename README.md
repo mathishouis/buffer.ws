@@ -35,7 +35,7 @@ import { BufferWS } from 'buffer.ws';
 
 ## Usage
 
-Importing the package with require
+Example:
 
 ```js
 
