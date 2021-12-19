@@ -2,22 +2,22 @@ import {BufferWS} from "../src/BufferWS";
 
 describe('DECODING and ENCODING test', () => {
     it('encoding', function () {
-        let buffer = new BufferWS();
-        buffer.writeInt(39);
-        buffer.writeDouble(4.5);
-        buffer.writeString("Yooo");
-        buffer.writeShort(5);
-        buffer.writeBool(false);
+        let buffer = new BufferWS()
+            .writeInt(39)
+            .writeDouble(4.5)
+            .writeString("Yooo")
+            .writeShort(5)
+            .writeBool(false);
     }),
     it('decoding', function () {
-        let buffer = new BufferWS();
-        buffer.writeInt(64);
-        buffer.writeDouble(3.6);
-        buffer.writeString("Heyy :D");
-        buffer.writeShort(9);
-        buffer.writeBool(true);
+        let buffer = new BufferWS()
+            .writeInt(64)
+            .writeDouble(3.6)
+            .writeString("Heyy :D")
+            .writeShort(9)
+            .writeBool(true)
+            .flip();
 
-        buffer.flip();
         console.log(buffer.readInt());
         console.log(buffer.readDouble());
         console.log(buffer.readString());

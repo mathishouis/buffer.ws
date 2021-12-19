@@ -6,6 +6,7 @@ A simple, light and fast bytebuffer implementation under node.js
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Wiki](#wiki)
 * [Testing](#testing)
 
 ## Installation
@@ -47,6 +48,11 @@ var buffer = new BufferWS()
 console.log(buffer.readInt(), buffer.readString()); // 39 Hello!
 
 ```
+
+## Wiki
+
+* [Home](https://github.com/kozennnn/buffer.ws/wiki)
+* [Documentation](https://github.com/kozennnn/buffer.ws/wiki/Documentation)
 
 ## Testing
 

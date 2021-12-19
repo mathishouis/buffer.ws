@@ -40,27 +40,32 @@ export class BufferWS {
         return retVal;
     }
 
-    public writeByte(byte: number): void {
+    public writeByte(byte: number): this {
         this._dataView.pushInt8(byte);
+        return this;
     }
 
-    public writeBool(bool: boolean): void {
+    public writeBool(bool: boolean): this {
         if(bool) this.writeByte(1); else this.writeByte(0);
+        return this;
     }
 
-    public writeShort(short: number): void {
+    public writeShort(short: number): this {
         this._dataView.pushInt16(short);
+        return this;
     }
 
-    public writeInt(int: number): void {
+    public writeInt(int: number): this {
         this._dataView.pushInt32(int);
+        return this;
     }
 
-    public writeDouble(double: number): void {
+    public writeDouble(double: number): this {
         this._dataView.pushFloat64(double);
+        return this;
     }
 
-    public writeString(string: string): void {
+    public writeString(string: string): this {
         this._dataView.pushInt16(string.length);
         let bytes = [];
         for (let i = 0; i < string.length; ++i) {
@@ -68,13 +73,19 @@ export class BufferWS {
             bytes = bytes.concat([code]);
             this._dataView.pushInt8(bytes[i]);
         }
+        return this;
     }
 
-    public flip(): void {
+    public flip(): this {
         this._dataView.flip();
+        return this;
     }
 
     public getByteArray(): Uint8Array {
         return this._dataView.getByteArray();
+    }
+
+    public getBuffer(): Buffer {
+        return new Buffer(this.getByteArray());
     }
 }
