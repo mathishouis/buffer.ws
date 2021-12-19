@@ -11,7 +11,7 @@ A simple and fast bytebuffer implementation under node.js
 ## Installation
 
 ```
-npm i @kozennnn/buffer.js
+npm i buffer.io
 ```
 
 ## Usage
