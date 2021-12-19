@@ -10,11 +10,31 @@ A simple and fast bytebuffer implementation under node.js
 
 ## Installation
 
+Install the package:
+
 ```
 npm i buffer.ws
 ```
 
+Importing the package with require:
+
+```js
+
+var BufferWS = require("buffer.ws");
+
+```
+
+or with import:
+
+```js
+
+import { BufferWS } from 'buffer.ws';
+
+```
+
 ## Usage
+
+Importing the package with require
 
 ```js
 
