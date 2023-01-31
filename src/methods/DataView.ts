@@ -1,3 +1,5 @@
+import { Buffer } from 'buffer';
+
 export class DataView {
 
     private _buffer: Buffer;
