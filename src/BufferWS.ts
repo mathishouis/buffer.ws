@@ -1,4 +1,5 @@
-import {DataView} from "./methods/DataView";
+import { Buffer } from 'buffer';
+import { DataView } from "./methods/DataView";
 
 export class BufferWS {
 

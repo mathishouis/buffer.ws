@@ -1,8 +1,9 @@
 {
   "name": "buffer.ws",
-  "version": "1.0.6",
+  "version": "1.0.10",
   "description": "A simple, light and fast bytebuffer implementation under node.js ",
   "main": "dist/BufferWS.js",
+  "types": "dist/BufferWS.d.ts",
   "scripts": {
     "test": "mocha -r ts-node/register 'tests/**/*.ts'",
     "build": "tsc"
@@ -41,9 +42,6 @@
   "files": [
     "dist/**/*"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "dependencies": {
     "buffer": "^6.0.3"
   }
