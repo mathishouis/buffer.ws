@@ -155,4 +155,12 @@ export class DataView {
     public getByteArray(): Uint8Array {
         return this._byteArray;
     }
+
+    public get position(): number {
+        return this._cursor;
+    }
+
+    public set position(position: number) {
+        this._cursor = position;
+    }
 }

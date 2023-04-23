@@ -1,5 +1,6 @@
 import { Buffer } from 'buffer';
 import { DataView } from "./methods/DataView";
+import {TextEncoder} from "util";
 
 export class BufferWS {
 
@@ -7,13 +8,21 @@ export class BufferWS {
 
     constructor(arraybuffer?: Uint8Array | Buffer) {
         if(arraybuffer == undefined) {
-            arraybuffer = new Buffer(64);
+            arraybuffer = new Buffer(5096);
         }
         this._dataView = new DataView(arraybuffer, 0);
     }
 
     public readByte(): number {
         return this._dataView.nextInt8();
+    }
+
+    public readBytes(length: number): BufferWS
+    {
+        const buffer = new BufferWS(this._dataView.getByteArray().slice(this._dataView.position, this._dataView.position + length));
+        this._dataView.position += length;
+
+        return buffer;
     }
 
     public readBool(): boolean {
@@ -34,11 +43,8 @@ export class BufferWS {
 
     public readString(): string {
         const length = this.readShort();
-        let retVal = "";
-
-        for (let i = 0; i < length; i++) retVal += String.fromCharCode(this.readByte());
-
-        return retVal;
+        const buffer = this.readBytes(length);
+        return new TextDecoder('utf-8').decode(buffer.getByteArray());
     }
 
     public writeByte(byte: number): this {
