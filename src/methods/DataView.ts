@@ -163,4 +163,11 @@ export class DataView {
     public set position(position: number) {
         this._cursor = position;
     }
+
+    public set buffer(buffer: Buffer | Uint8Array) {
+        const cursor: number = this._cursor;
+        this.initCacheArray();
+        this.setBuffer(buffer);
+        this._cursor = cursor;
+    }
 }
