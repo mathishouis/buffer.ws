@@ -1,6 +1,5 @@
 import { Buffer } from 'buffer';
 import { DataView } from "./methods/DataView";
-import {TextEncoder} from "util";
 
 export class BufferWS {
 
@@ -21,7 +20,6 @@ export class BufferWS {
     {
         const buffer = new BufferWS(this._dataView.getByteArray().slice(this._dataView.position, this._dataView.position + length));
         this._dataView.position += length;
-
         return buffer;
     }
 
@@ -72,14 +70,12 @@ export class BufferWS {
         return this;
     }
 
-    public writeString(string: string): this {
-        this._dataView.pushInt16(string.length);
-        let bytes = [];
-        for (let i = 0; i < string.length; ++i) {
-            const code = string.charCodeAt(i);
-            bytes = bytes.concat([code]);
-            this._dataView.pushInt8(bytes[i]);
-        }
+    public writeString(string: string, includeLength: boolean = true): this {
+        const encodedString = new TextEncoder().encode(string);
+        if (includeLength) this._dataView.pushInt16(encodedString.length);
+        encodedString.forEach((value: number) => {
+            this._dataView.pushInt8(value);
+        });
         return this;
     }
 
