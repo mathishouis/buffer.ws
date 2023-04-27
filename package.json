@@ -1,6 +1,6 @@
 {
   "name": "buffer.ws",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A simple, light and fast bytebuffer implementation under node.js ",
   "main": "dist/BufferWS.js",
   "types": "dist/BufferWS.d.ts",
