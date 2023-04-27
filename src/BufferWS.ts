@@ -112,4 +112,8 @@ export class BufferWS {
         newBuffer.set(new Uint8Array(this.getBuffer()), 0);
         this._dataView.buffer = newBuffer;
     }
+
+    public getBytesAvailable(): number {
+        return this.getBuffer().byteLength - this._dataView.position;
+    }
 }
