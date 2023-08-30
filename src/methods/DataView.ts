@@ -152,7 +152,7 @@ export class DataView {
         this._cursor = 0;
     }
 
-    public getByteArray(): Uint8Array {
+    public get byteArray(): Uint8Array {
         return this._byteArray;
     }
 

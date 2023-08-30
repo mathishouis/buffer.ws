@@ -36,14 +36,17 @@ describe('DECODING and ENCODING test', () => {
           .writeInt(21)
           .writeInt(23)
           .writeShort(921)
+          .writeBytes(Buffer.from("hello world xd", "utf-8"))
           .flip();
-        buffer.writeInt(buffer.getBuffer().byteLength);
+        buffer.writeInt(buffer.buffer.byteLength);
         buffer.flip();
         console.log(buffer.readInt());
         console.log(buffer.getBytesAvailable());
         console.log(buffer.readInt());
         console.log(buffer.readInt());
         console.log(buffer.readShort());
+        console.log(buffer.readBytes("hello world xd".length).buffer);
         console.log(buffer.getBytesAvailable());
+        console.log(Buffer.from("hello world xd", "utf-8"))
     })
 });

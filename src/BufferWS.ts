@@ -18,7 +18,7 @@ export class BufferWS {
 
     public readBytes(length: number): BufferWS
     {
-        const buffer = new BufferWS(this._dataView.getByteArray().slice(this._dataView.position, this._dataView.position + length));
+        const buffer = new BufferWS(this._dataView.byteArray.slice(this._dataView.position, this._dataView.position + length));
         this._dataView.position += length;
         return buffer;
     }
@@ -42,12 +42,20 @@ export class BufferWS {
     public readString(): string {
         const length = this.readShort();
         const buffer = this.readBytes(length);
-        return new TextDecoder('utf-8').decode(buffer.getByteArray());
+        return new TextDecoder('utf-8').decode(buffer.byteArray);
     }
 
     public writeByte(byte: number): this {
         if (!this.isEnoughAllocatedBytes(1)) this.allocateMemory(this.getRequiredLength(1));
         this._dataView.pushInt8(byte);
+        return this;
+    }
+
+    public writeBytes(buffer: Buffer): this {
+        if (!this.isEnoughAllocatedBytes(buffer.byteLength)) this.allocateMemory(this.getRequiredLength(buffer.byteLength));
+        buffer.forEach((value: number) => {
+            this._dataView.pushInt8(value);
+        });
         return this;
     }
 
@@ -89,16 +97,16 @@ export class BufferWS {
         return this;
     }
 
-    public getByteArray(): Uint8Array {
-        return this._dataView.getByteArray();
+    public get byteArray(): Uint8Array {
+        return this._dataView.byteArray;
     }
 
-    public getBuffer(): Buffer {
-        return new Buffer(this.getByteArray());
+    public get buffer(): Buffer {
+        return new Buffer(this.byteArray);
     }
 
     public isEnoughAllocatedBytes(size: number): boolean {
-        return this._dataView.position + size < this.getBuffer().byteLength;
+        return this._dataView.position + size < this.buffer.byteLength;
     }
 
     public getRequiredLength(size: number): number {
@@ -109,11 +117,11 @@ export class BufferWS {
     public allocateMemory(size: number): void {
         if(size < 1) return;
         const newBuffer = new Uint8Array(size);
-        newBuffer.set(new Uint8Array(this.getBuffer()), 0);
+        newBuffer.set(new Uint8Array(this.buffer), 0);
         this._dataView.buffer = newBuffer;
     }
 
     public getBytesAvailable(): number {
-        return this.getBuffer().byteLength - this._dataView.position;
+        return this.buffer.byteLength - this._dataView.position;
     }
 }
